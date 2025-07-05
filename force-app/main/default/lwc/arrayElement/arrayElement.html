@@ -1,0 +1,34 @@
+<template>
+    <lightning-card icon-name="standard:account" variant="base" title="Array Elements Traverse">
+      <div>
+        <!-- Card Body  -->
+        <div> Array Element:: {arrayElement}</div>
+        <!-- <div>{arrayReactive}</div> -->
+        <div>obj name::: {obj.name}</div>
+        <template for:each={arrayTwo} for:item="single">
+            <div key={single}>{single}</div>
+        </template>
+        <lightning-input 
+          type="text"
+          label="Enter some text"
+          onchange={handleChange}
+        ></lightning-input>
+        <template if:true={isShow}>
+            LWC Rocks!
+        </template>
+        <template if:false={isShow}>
+            Flow Rocks!
+        </template>
+        <lightning-button 
+          variant="brand"
+          label="Show/Hide" 
+          onclick={handleShowHideClick} 
+        ></lightning-button>
+      </div>
+      <div slot="footer">
+        <lightning-button label="Next" variant="brand" onclick={handleNext} class="slds-p-right_small"></lightning-button>
+        <lightning-button label="Back" variant="brand" onclick={handleBack} ></lightning-button>
+      </div>
+    </lightning-card>
+
+</template>

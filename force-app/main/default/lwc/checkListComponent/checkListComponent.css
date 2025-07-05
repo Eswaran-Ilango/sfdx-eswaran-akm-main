@@ -1,0 +1,16 @@
+.loading-spinner {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 9999;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgba(0, 0, 0, 0.123);
+  }
+.larger{
+  width: 20px;
+  height: 20px;
+}

@@ -1,0 +1,23 @@
+<template>
+    <lightning-modal-header label="New Task Creation"></lightning-modal-header>
+    <lightning-modal-body> 
+       
+
+        <lightning-input value={taskSubject} label="Task Subject" onchange={handleSubjectChange}></lightning-input>
+        <lightning-input value={taskDueDate} label="Due Date" type="date" onchange={handleDueDateChange}></lightning-input>
+            <lightning-textarea value={taskDescription} label="Task Description" onchange={handleDescriptionChange}></lightning-textarea>
+            <lightning-combobox
+                label="Task Owner"
+                options={ownerOptions}
+                value={taskOwnerId}
+                onchange={handleOwnerChange}
+                placeholder="Select Task Owner"
+            ></lightning-combobox>
+            <br/>
+
+    </lightning-modal-body>
+    <lightning-modal-footer>
+        <lightning-button label="Save" onclick={handleSave}></lightning-button>
+        <lightning-button label="Cancel" onclick={handleCancel}></lightning-button>
+    </lightning-modal-footer>
+</template>

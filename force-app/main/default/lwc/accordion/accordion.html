@@ -1,0 +1,27 @@
+<template>
+    <lightning-accordion allow-multiple-sections-open>
+        <lightning-accordion-section label="Account Records">
+            <template if:true={accounts}>
+                <template for:each={accounts} for:item="account">
+                    <div key={account.Id} class="slds-grid slds-wrap">
+                        <div class="slds-col slds-size_1-of-2">{account.Name}</div>
+                        <div class="slds-col slds-size_1-of-2">
+                            <lightning-combobox
+                                name={account.Id}
+                                value={account.selectedValue}
+                                options={valueOptions}
+                                onchange={handleValueChange}
+                                data-id={account.Id}
+                            ></lightning-combobox>
+                        </div>
+                    </div>
+                </template>
+            </template>
+            <template if:true={error}>
+                <div>Error retrieving Account records: {error}</div>
+            </template>
+        </lightning-accordion-section>
+    </lightning-accordion>
+
+    <lightning-button label="Save" onclick={handleSave} variant="brand" class="slds-m-top_medium"></lightning-button>
+</template>

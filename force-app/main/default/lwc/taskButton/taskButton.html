@@ -1,0 +1,18 @@
+<template>
+    <lightning-card title="Task Creation Form" icon-name="standard:task">
+        <div class="slds-var-p-around_x-small">
+            <lightning-input value={taskSubject} label="Task Subject" onchange={handleSubjectChange}></lightning-input>
+            <lightning-input value={taskDueDate} label="Due Date" type="date" onchange={handleDueDateChange}></lightning-input>
+            <lightning-textarea value={taskDescription} label="Task Description" onchange={handleDescriptionChange}></lightning-textarea>
+            <lightning-combobox
+                label="Task Owner"
+                options={ownerOptions}
+                value={taskOwnerId}
+                onchange={handleOwnerChange}
+                placeholder="Select Task Owner"
+            ></lightning-combobox>
+            <br/>
+            <lightning-button label="Save Task" onclick={createTask} variant="brand"></lightning-button>
+        </div>
+    </lightning-card>
+  </template>

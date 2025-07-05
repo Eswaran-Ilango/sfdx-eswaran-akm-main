@@ -1,0 +1,13 @@
+<apex:page controller="PdfExampleController" renderAs="pdf">
+  <apex:form >
+    <apex:pageBlock >
+        <apex:pageBlockTable value="{!accList}" var="acc" border="2">
+           <apex:column value="{!acc.name}"/>
+           <apex:column value="{!acc.annualrevenue}"/>
+           <apex:column value="{!acc.type}"/>
+           <apex:column value="{!acc.accountnumber}"/>
+           <apex:column value="{!acc.rating}"/>
+        </apex:pageBlockTable>
+    </apex:pageBlock>
+  </apex:form>
+</apex:page>

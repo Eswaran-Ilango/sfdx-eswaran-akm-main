@@ -1,0 +1,19 @@
+<template>
+    <lightning-card icon-name="standard:account" variant="base">
+    <lightning-button label="Loan Contacts" variant="brand" onclick={handleContactsChange}></lightning-button>
+       
+    <template for:each={contacts} for:item="conRec">
+        <div key={conRec.Id}>
+            {conRec.Name} 
+        </div>
+    </template>
+    
+    
+    <lightning-button label="load fruits" variant="brand" onclick={addFruits}></lightning-button>
+    <template lwc:if={fruits} for:each={fruits} for:item="s">
+        {s}
+    </template>
+    
+</lightning-card>
+    
+</template>

@@ -1,0 +1,57 @@
+<template>
+    <template if:true={isLoading}>
+        <div >
+            <lightning-spinner alternative-text="Loading" size="large"></lightning-spinner>
+        </div>
+    </template>
+
+
+<template if:false={isLoading}>
+    <lightning-accordion allow-multiple-sections-open active-section-name={activeSections}>
+        <template for:each={accordionSections} for:item="section" >
+            <lightning-accordion-section key={section.name} label={section.sectionLabel} name={section.name}>
+                <div class="slds-p-around_medium">
+                    <template for:each={section.questions} for:item="question">
+                        <div key={question.Id} class="slds-grid slds-wrap slds-grid_vertical-align-center slds-m-bottom_medium">
+                            <div class="slds-col slds-size_8-of-12 ">
+                                <div class="slds-text-body_regular">{question.Name}</div>
+                            </div>
+                            <div class="slds-col slds-size_4-of-12 ">
+                                <div>
+                                    <template if:true={question.isPickList}>
+                                        <lightning-combobox
+                                            label=""
+                                            value={question.SelectedValue}
+                                            data-question-id={question.Id}
+                                            options={question.Options}
+                                            onchange={handleChange}
+                                        ></lightning-combobox>
+                                    </template>
+                                    <template if:true={question.isText}>
+                                        <lightning-input
+                                            label=""
+                                            value={question.SelectedValue}
+                                            data-question-id={question.Id}
+                                            onchange={handleChange}
+                                        ></lightning-input>
+                                    </template>
+                                    <span>
+                                        <input
+                                            type="checkbox"
+                                            
+                                            class="larger"
+                                        ></input>
+                                    </span>
+                                </div>
+                            </div>
+                        </div>
+                    </template>
+                </div>
+            </lightning-accordion-section>
+        </template>
+    </lightning-accordion>
+
+    <lightning-button label="Save" variant="brand" onclick={handleSave}></lightning-button>
+</template>
+
+</template>

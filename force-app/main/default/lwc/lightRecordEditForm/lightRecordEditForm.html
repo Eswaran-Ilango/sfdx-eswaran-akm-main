@@ -1,0 +1,33 @@
+<template>
+    
+<lightning-card title="LightRecordEditForm">
+
+    <lightning-record-edit-form object-api-name={objectApiName} record-id={recordId}
+    onsubmit={submitHandler}
+    onsuccess={successHandler}
+    onerror={errorHandler}
+    >
+        <div class="slds-grid slds-gutters">
+            <div class="slds-col slds-size_6-of-12">
+                <lightning-input-field field-name={fieldsList.nameField}></lightning-input-field>
+                <lightning-input-field field-name={fieldsList.industryField}></lightning-input-field>
+                <lightning-input-field field-name={fieldsList.annualRevenueField}></lightning-input-field>
+
+            </div>
+            <div class="slds-col slds-size_6-of-12">
+                <lightning-input-field field-name={fieldsList.phoneField}></lightning-input-field>
+            </div>
+
+        </div>
+
+        <lightning-button label="Cancel" type="reset"></lightning-button>
+        <lightning-button label="Submit" type="submit"></lightning-button>
+        
+
+    </lightning-record-edit-form>
+
+
+
+</lightning-card>
+
+</template>
