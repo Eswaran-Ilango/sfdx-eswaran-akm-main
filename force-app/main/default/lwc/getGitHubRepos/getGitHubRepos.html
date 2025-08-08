@@ -1,0 +1,13 @@
+<template>
+    <lightning-card title="Git Hub Repos Info">
+        <div style="height: 300px;">
+            <lightning-datatable
+                key-field="id"
+                data={gitReposData}
+                columns={columns}
+                hide-checkbox-column="true"
+                show-row-number-column
+            ></lightning-datatable>
+        </div>
+    </lightning-card>
+</template>
