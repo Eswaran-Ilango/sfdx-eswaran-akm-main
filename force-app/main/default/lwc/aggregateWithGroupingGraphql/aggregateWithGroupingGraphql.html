@@ -1,0 +1,16 @@
+<template>
+    <lightning-card title="Aggregate With Grouping Graphql" icon-name="standard:account">
+        <template lwc:if={results}>
+            <template for:each={results} for:item="account">
+                <div key={account.aggregate}>
+                    <h2><b>Year:</b> &nbsp;{account.aggregate.CreatedDate.calendarYear.value}</h2>
+                    <span>
+                        <b>Number of Account: </b>&nbsp;
+                            <lightning-badge label={account.aggregate.Name.count.value}
+                                                    icon-name="utility:company"></lightning-badge>
+                    </span>
+                </div>
+            </template>
+        </template>
+    </lightning-card>
+</template>

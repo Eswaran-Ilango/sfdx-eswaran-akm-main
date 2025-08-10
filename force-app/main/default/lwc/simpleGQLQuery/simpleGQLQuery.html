@@ -1,0 +1,12 @@
+<template>
+    <h1>SimpleGQLQuery</h1>
+    <template lwc:if={results}>
+        <template for:each={results} for:item="account">
+            <div class="card-spacer" key={account.Id}>
+                <lightning-card icon-name="standard:account" class="slds-var-m-around_medium">
+                <h1 slot="title">{account.Name.value}</h1>
+                </lightning-card>
+            </div>
+        </template>
+  </template>
+</template>
