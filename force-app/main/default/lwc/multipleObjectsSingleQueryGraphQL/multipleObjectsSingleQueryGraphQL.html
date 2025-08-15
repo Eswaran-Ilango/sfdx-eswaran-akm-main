@@ -1,0 +1,31 @@
+<template>
+    <lightning-card title="MultipleObjectsGraphQL" icon-name="standard:contact">
+        <div class="slds-var-m-around_medium">
+            <lightning-record-picker
+            label="Choose a record"
+            object-api-name="Account"
+            placeholder="Search Accounts..."
+            onchange={handleRecordChange}
+            ></lightning-record-picker>
+            <template lwc:if={contacts}>
+                <h1><b>Contacts Info:</b></h1>
+                <template for:each={contacts} for:item="contact">
+                    <p key={contact.Id}>{contact.Name.value}</p>
+                </template>
+            </template>
+            
+            <template lwc:if={userName}>
+                <h1><b>LoggedIn User Info:</b></h1>
+                <template for:each={userName} for:item="user">
+                    <p key={user.Id}>{user.Name.value}</p>
+                    <p key={user.Id}>{user.Email.value}</p>
+                    <p key={user.Id}>{user.Profile.Name.value}</p>
+                </template>
+            </template>
+
+            <template lwc:elseif={errors}>
+                <!-- Display errors -->
+            </template>
+        </div>
+    </lightning-card>
+</template>

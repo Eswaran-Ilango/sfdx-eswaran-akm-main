@@ -1,0 +1,22 @@
+<!-- datatableWithGraphqlPagination -->
+<template>
+    <lightning-card title="Datatable With Graphql Pagination">
+        <lightning-button-icon disabled={isFirstPage} class="previous" icon-name="utility:chevronleft"
+            onclick={getPreviousPage}><label>Next</label></lightning-button-icon>
+        <lightning-button-icon icon-name="utility:skip_back" onclick={resetPagingCursor}><label>Reset
+            Pagination</label></lightning-button-icon>
+        <lightning-button-icon disabled={isFinalPage} class="next" icon-name="utility:chevronright"
+            onclick={getNextPage}><label>Next</label></lightning-button-icon>
+        <p>Total records found: {totalCount}</p>
+        <p>Page {currentPage} of {totalPages}</p>
+    </lightning-card>
+    
+    <template lwc:if={accounts}>
+        <lightning-datatable key-field="Id" data={accounts} columns={columns} 
+        hide-checkbox-column>
+        </lightning-datatable>
+    </template>
+    <template lwc:elseif={errors}>
+        <!-- Display errors -->
+    </template>
+</template>
