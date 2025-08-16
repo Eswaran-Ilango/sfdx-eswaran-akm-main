@@ -1,0 +1,15 @@
+<template>
+    <lightning-button label="Click to Authenticate with HubSpot" 
+    title="Click to Authenitcate with HubSpot" 
+    onclick={handleAuth}></lightning-button>
+
+    <lightning-button label="Click to Get Companies from HubSpot" 
+    title="Click to Get Companies from HubSpot" 
+    onclick={getBatchOfCompaniesMethod}></lightning-button>
+    <lightning-button label="Click to Refresh token from HubSpot" 
+    title="Click to Refresh token from HubSpot" 
+    onclick={refreshTokenMethod}></lightning-button>
+    <div lwc:if={res}>
+        {res}
+    </div>
+</template>

@@ -1,0 +1,15 @@
+<apex:page >
+    <script>
+        window.onload = onLoad;
+
+        function onLoad() {
+            const code = getURLQueryParam(window.location.href, 'code');
+            //send to LWC
+            location.href = '/lightning/n/HubSpot_Connect?c__code=' + code;
+        }
+
+        function getURLQueryParam(url, key) {
+            return new URL(url).searchParams.get(key);
+        }
+    </script>
+</apex:page>
