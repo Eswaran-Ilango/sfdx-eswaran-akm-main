@@ -1,0 +1,18 @@
+<apex:page >
+  <!-- Begin Default Content REMOVE THIS -->
+  <h1>Congratulations</h1>
+  This is your new Page
+  <!-- End Default Content REMOVE THIS -->
+  <script>
+    window.onload = onLoad
+    function onLoad() {
+        let url = window.location.href;
+        let authCode = getURLParams(url, 'code');
+        location.href = '/lightning/n/Service_Now_Connect?c__code=' + authCode;
+    }
+
+    function getURLParams(url, key) {
+      return  new URL(url).searchParams.get(key);
+    }
+  </script>
+</apex:page>
