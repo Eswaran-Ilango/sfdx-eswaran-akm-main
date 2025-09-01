@@ -1,8 +1,8 @@
 public with sharing class SpotifyClientCredentialsController {
     static final string SPOTIFY_AUTH_ENDPOINT = 'https://accounts.spotify.com/api/token';
-    static final string SPOTIFY_NEW_RELEASES_ENDPOINT = 'https://api.spotify.com/v1/browse/new-releases?offset=0&limit=1';
-    static final string CLIENT_ID = 'b9613f4dd0294ac3a806d2edcca5a25a';
-    static final string CLIENT_SECRET = '73be3ea6843b417e9c5748998985bf95';
+    static final string SPOTIFY_NEW_RELEASES_ENDPOINT = 'https://api.spotify.com/v1/browse/new-releases?offset=0&limit=50';
+    static final string CLIENT_ID = 'xxxxxxxxxxxxxxxxxxxxxxxxxxx';
+    static final string CLIENT_SECRET = 'xxxxxxxxxxxxxxxxxxxxxxxxxxxx';
 
     @AuraEnabled
     public static string getNewReleases(){
@@ -50,6 +50,23 @@ public with sharing class SpotifyClientCredentialsController {
             //return res.getBody();
         } else {
             return 'Error while getting access token for Spotify::' + res.getStatusCode() + '::' + res.getBody();
+        }
+    }
+
+    @AuraEnabled
+    public static String getNewReleasesWithNamedCredentials() {
+        Http http = new Http();
+
+        HttpRequest req = new HttpRequest();
+        req.setEndpoint('callout:SPOTIFY_NEW_RELEASES_ENDPOINT');
+        req.setMethod('GET');
+
+        HttpResponse res = http.send(req);
+        if(res.getStatusCode() == 200) {
+            return paraseGetNewReleases(res.getBody());
+            //return res.getBody();
+        } else {
+            return 'Error while getting get new releases result for Spotify::' + res.getStatusCode() + '::' + res.getBody();
         }
     }
 
